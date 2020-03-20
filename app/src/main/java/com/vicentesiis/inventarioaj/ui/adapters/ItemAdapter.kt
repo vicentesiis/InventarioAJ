@@ -1,6 +1,8 @@
 package com.vicentesiis.inventarioaj.ui.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +12,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.vicentesiis.inventarioaj.R
 import com.vicentesiis.inventarioaj.objects.Item
+import kotlin.random.Random
 
 class ItemAdapter(): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
@@ -38,15 +41,18 @@ class ItemAdapter(): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val productImage = view.findViewById<ImageView>(R.id.product_image)
-        val product = view.findViewById<TextView>(R.id.item)
+        val category = view.findViewById<TextView>(R.id.category)
+        val name = view.findViewById<TextView>(R.id.item)
         val count = view.findViewById<TextView>(R.id.count)
         val price = view.findViewById<TextView>(R.id.price)
 
+        @SuppressLint("SetTextI18n")
         fun bind(item: Item, context: Context) {
-            product.text = item.product
-            count.text = item.count.toString() + " en almacen"
-            price.text = item.price.toString() + "$"
-            itemView.setOnClickListener(View.OnClickListener { Toast.makeText(context, product.text, Toast.LENGTH_SHORT) })
+            category.text = item.category
+            name.text =  item.name
+            count.text = "Cant: " + item.count.toString()
+            price.text = "$" + item.price.toString()
+            itemView.setOnClickListener(View.OnClickListener { Toast.makeText(context, name.text, Toast.LENGTH_SHORT) })
 
         }
 

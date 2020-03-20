@@ -1,5 +1,6 @@
 package com.vicentesiis.inventarioaj
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -34,6 +35,8 @@ class LoginActvity : AppCompatActivity() {
     private fun login() {
         if (!(TextUtils.isEmpty(email.text.toString()) && TextUtils.isEmpty(passwoed.text.toString())) ) {
             progessBar.visibility = View.VISIBLE
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
         } else {
             Toast.makeText(this, "Introduzca las credenciales", Toast.LENGTH_LONG).show()
         }

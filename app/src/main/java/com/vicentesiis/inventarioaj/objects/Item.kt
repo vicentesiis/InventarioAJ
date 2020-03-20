@@ -1,7 +1,8 @@
 package com.vicentesiis.inventarioaj.objects
 
 data class Item(
-    var product: String,
+    var category: String,
+    var name: String,
     var count: Int,
     var price: Int
 )

@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val activityIntent = if (1 == 1) {
+        val activityIntent = if (1 == 2) {
             Intent(this, HomeActivity::class.java)
         } else {
             Intent(this, LoginActvity::class.java)
