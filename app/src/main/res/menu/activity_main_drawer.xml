@@ -9,11 +9,11 @@
             android:icon="@drawable/ic_shopping_basket_black_24dp"
             android:title="@string/menu_sales" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_articles"
             android:icon="@drawable/ic_format_list_bulleted_black_24dp"
             android:title="@string/menu_articles" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_reports"
             android:icon="@drawable/ic_receipt_black_24dp"
             android:title="@string/menu_reports" />
         <item

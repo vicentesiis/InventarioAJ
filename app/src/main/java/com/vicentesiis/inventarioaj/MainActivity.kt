@@ -7,6 +7,8 @@ import android.view.View
 import android.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import com.vicentesiis.inventarioaj.utils.Utils
+import io.realm.Realm
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,7 +16,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val activityIntent = if (1 == 2) {
+        Realm.init(this)
+
+        val sharedPreferences = getSharedPreferences(Utils.PREF_NAME, Utils.PRIVATE_MODE)
+
+        val activityIntent = if (sharedPreferences.getBoolean("login", false)) {
             Intent(this, HomeActivity::class.java)
         } else {
             Intent(this, LoginActvity::class.java)

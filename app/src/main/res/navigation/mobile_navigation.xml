@@ -31,14 +31,23 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_articles"
         android:name="com.vicentesiis.inventarioaj.ui.articles.ArticlesFragment"
         android:label="@string/menu_articles"
         tools:layout="@layout/fragment_articles" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_reports"
         android:name="com.vicentesiis.inventarioaj.ui.reports.ReportsFragment"
         android:label="@string/menu_reports"
         tools:layout="@layout/fragment_reports" />
+
+    <activity
+        android:id="@+id/nav_logout"
+        android:name="com.vicentesiis.inventarioaj.LoginActvity"
+        android:label="activity_login"
+        app:action="jeje"
+        tools:layout="@layout/activity_login" />
+
+
 </navigation>

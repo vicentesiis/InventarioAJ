@@ -26,11 +26,7 @@ class LoginActvity : AppCompatActivity() {
 
     }
 
-    fun login(view: View) {
-
-        login()
-
-    }
+    fun login(view: View) { login() }
 
     private fun login() {
         if (!(TextUtils.isEmpty(email.text.toString()) && TextUtils.isEmpty(passwoed.text.toString())) ) {
@@ -40,6 +36,11 @@ class LoginActvity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Introduzca las credenciales", Toast.LENGTH_LONG).show()
         }
+    }
+
+    fun singup(view: View) {
+        val intent = Intent(this, SingUpActivity::class.java)
+        startActivity(intent)
     }
 
 

@@ -1,6 +1,7 @@
 package com.vicentesiis.inventarioaj.objects
 
-data class Item(
+data class
+Item(
     var category: String,
     var name: String,
     var count: Int,
