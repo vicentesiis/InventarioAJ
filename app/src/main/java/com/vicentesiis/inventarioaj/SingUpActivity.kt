@@ -34,7 +34,7 @@ class SingUpActivity : AppCompatActivity() {
         name = findViewById<EditText>(R.id.create_name)
         email = findViewById<EditText>(R.id.create_user)
         password = findViewById<EditText>(R.id.create_password)
-        loading = findViewById<ProgressBar>(R.id.loading)
+        loading = findViewById<ProgressBar>(R.id.loading_pro)
 
     }
 

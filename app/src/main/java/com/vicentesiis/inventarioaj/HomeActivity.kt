@@ -60,11 +60,6 @@ class HomeActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_host_fragment)
 
-        navView.menu.findItem(R.id.nav_logout).setOnMenuItemClickListener {
-            logout()
-            true
-        }
-
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         appBarConfiguration = AppBarConfiguration(setOf(
                 R.id.nav_home, R.id.nav_articles, R.id.nav_reports, R.id.nav_logout), drawerLayout)
@@ -82,7 +77,4 @@ class HomeActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    private fun logout() {
-        getSharedPreferences(Utils.PREF_NAME,Utils.PRIVATE_MODE).edit().clear().apply()
-    }
 }

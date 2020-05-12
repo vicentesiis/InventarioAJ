@@ -1,5 +1,7 @@
 package com.vicentesiis.inventarioaj.utils
 
+import android.content.Context
+
 class Utils {
 
     companion object {

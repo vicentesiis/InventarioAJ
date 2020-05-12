@@ -1,10 +1,11 @@
-package com.vicentesiis.inventarioaj.ui.sales
+package com.vicentesiis.inventarioaj.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,18 +27,26 @@ class SalesFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+
         homeViewModel = ViewModelProvider(this).get(SalesViewModel::class.java)
 
         val root = inflater.inflate(R.layout.fragment_sales, container, false)
 
         sales = root.findViewById(R.id.sales)
+
+        mAdapter.ItemAdapter(homeViewModel.getItems(), context!!)
+        mAdapter.onItemClick = { item ->
+            Toast.makeText(context, item.name, Toast.LENGTH_SHORT)
+        }
+
         recyclerView = root.findViewById(R.id.items_recyclerView)
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        mAdapter.ItemAdapter(homeViewModel.getItems(), context!!)
         recyclerView.adapter = mAdapter
 
         return root
     }
+
+
 
 }

@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.vicentesiis.inventarioaj.ui.sales.SalesFragment"
+        android:name="com.vicentesiis.inventarioaj.ui.SalesFragment"
         android:label="@string/menu_sales"
         tools:layout="@layout/fragment_sales">
 
@@ -32,13 +32,13 @@
 
     <fragment
         android:id="@+id/nav_articles"
-        android:name="com.vicentesiis.inventarioaj.ui.articles.ArticlesFragment"
+        android:name="com.vicentesiis.inventarioaj.ui.ArticlesFragment"
         android:label="@string/menu_articles"
         tools:layout="@layout/fragment_articles" />
 
     <fragment
         android:id="@+id/nav_reports"
-        android:name="com.vicentesiis.inventarioaj.ui.reports.ReportsFragment"
+        android:name="com.vicentesiis.inventarioaj.ui.ReportsFragment"
         android:label="@string/menu_reports"
         tools:layout="@layout/fragment_reports" />
 

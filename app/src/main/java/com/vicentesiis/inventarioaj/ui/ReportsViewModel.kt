@@ -1,7 +1,5 @@
-package com.vicentesiis.inventarioaj.ui.reports
+package com.vicentesiis.inventarioaj.ui
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class ReportsViewModel : ViewModel() {

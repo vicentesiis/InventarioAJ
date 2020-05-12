@@ -11,7 +11,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".SingUpActivity"
-            android:label="@string/title_activity_singup"></activity>
+            android:label="@string/title_activity_singup" />
+        <activity android:name=".ContainerActivitySalesFragment" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">

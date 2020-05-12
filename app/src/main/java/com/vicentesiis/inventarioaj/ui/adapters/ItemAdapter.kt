@@ -16,6 +16,7 @@ import kotlin.random.Random
 
 class ItemAdapter(): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
+    var onItemClick: ((Item) -> Unit)? = null
     var items: MutableList<Item> = ArrayList()
     lateinit var context: Context
 
@@ -38,7 +39,13 @@ class ItemAdapter(): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
         holder.bind(item, context)
     }
 
-    class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
+        init {
+            itemView.setOnClickListener {
+                onItemClick?.invoke(items[adapterPosition])
+            }
+        }
 
         val productImage = view.findViewById<ImageView>(R.id.product_image)
         val category = view.findViewById<TextView>(R.id.category)
@@ -52,7 +59,6 @@ class ItemAdapter(): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
             name.text =  item.name
             count.text = "Cant: " + item.count.toString()
             price.text = "$" + item.price.toString()
-            itemView.setOnClickListener(View.OnClickListener { Toast.makeText(context, name.text, Toast.LENGTH_SHORT) })
 
         }
 

@@ -1,4 +1,4 @@
-package com.vicentesiis.inventarioaj.ui.sales
+package com.vicentesiis.inventarioaj.ui
 
 import androidx.lifecycle.ViewModel
 import com.vicentesiis.inventarioaj.objects.Item
