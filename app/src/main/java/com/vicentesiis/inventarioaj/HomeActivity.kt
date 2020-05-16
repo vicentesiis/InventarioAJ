@@ -18,17 +18,26 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import com.vicentesiis.inventarioaj.data.User
+import com.vicentesiis.inventarioaj.ui.SalesFragment
 import com.vicentesiis.inventarioaj.utils.Utils
 import io.realm.Realm
 import io.realm.kotlin.where
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), SalesFragment.FragmentListener {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     val realm = Realm.getDefaultInstance()
+
+    override fun onAttachFragment(fragment: Fragment) {
+        super.onAttachFragment(fragment)
+        if (fragment is SalesFragment) {
+            fragment.setListener(this)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -75,6 +84,10 @@ class HomeActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    override fun onItemClick() {
+        TODO("Not yet implemented")
     }
 
 }

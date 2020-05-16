@@ -1,5 +1,6 @@
 package com.vicentesiis.inventarioaj.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.vicentesiis.inventarioaj.R
 import com.vicentesiis.inventarioaj.ui.adapters.ItemAdapter
 
+
 class SalesFragment : Fragment() {
 
     private lateinit var homeViewModel: SalesViewModel
@@ -21,11 +23,16 @@ class SalesFragment : Fragment() {
     private lateinit var sales: TextView
 
     private val mAdapter: ItemAdapter = ItemAdapter()
+    private var mListener: FragmentListener? = null
+
+    fun setListener(callback: FragmentListener) {
+        mListener = callback
+    }
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
 
         homeViewModel = ViewModelProvider(this).get(SalesViewModel::class.java)
@@ -36,7 +43,8 @@ class SalesFragment : Fragment() {
 
         mAdapter.ItemAdapter(homeViewModel.getItems(), context!!)
         mAdapter.onItemClick = { item ->
-            Toast.makeText(context, item.name, Toast.LENGTH_SHORT)
+            mListener?.onItemClick()
+            Toast.makeText(context, item.name, Toast.LENGTH_SHORT).show()
         }
 
         recyclerView = root.findViewById(R.id.items_recyclerView)
@@ -45,6 +53,10 @@ class SalesFragment : Fragment() {
         recyclerView.adapter = mAdapter
 
         return root
+    }
+
+    interface FragmentListener {
+        fun onItemClick()
     }
 
 

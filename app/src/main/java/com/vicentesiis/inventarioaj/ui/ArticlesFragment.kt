@@ -1,6 +1,5 @@
 package com.vicentesiis.inventarioaj.ui
 
-import android.R.attr.fragment
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,11 +9,8 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
-import com.vicentesiis.inventarioaj.ContainerActivitySalesFragment
-import com.vicentesiis.inventarioaj.HomeActivity
-import com.vicentesiis.inventarioaj.R
+import com.vicentesiis.inventarioaj.*
 
 
 class ArticlesFragment : Fragment() {
@@ -40,10 +36,11 @@ class ArticlesFragment : Fragment() {
             AdapterView.OnItemClickListener { _, _, position, _ ->
 
                 if (position == 0) {
-                    val intent = Intent(activity, ContainerActivitySalesFragment::class.java)
+                    val intent = Intent(activity, ArticleActivity::class.java)
                     startActivity(intent)
                 } else {
-
+                    val intent = Intent(activity, CategoryActivity::class.java)
+                    startActivity(intent)
                 }
 
             }
