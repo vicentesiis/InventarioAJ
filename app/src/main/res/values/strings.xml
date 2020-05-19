@@ -19,7 +19,7 @@
     <string name="login">Iniciar sesión</string>
     <string name="main_title">Accesorios AJ</string>
     <string name="inventory">Inventario</string>
-    <string name="sales">cargo \n $20</string>
+    <string name="sales">Cargo: $0</string>
     <string name="price">Price</string>
     <string name="count">Count</string>
     <string name="textview">TextView</string>
@@ -44,5 +44,7 @@
     <string name="delete_category">Eliminar Categoría</string>
     <string name="agregar_categoria">Agregar Categoria</string>
     <string name="select_category">Seleccione la categoria</string>
+    <string name="cancel">Cancelar</string>
+    <string name="charge">Cobrar</string>
 
 </resources>

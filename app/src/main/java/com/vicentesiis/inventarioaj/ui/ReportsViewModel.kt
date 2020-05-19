@@ -15,7 +15,7 @@ class ReportsViewModel : ViewModel() {
         reports.add("Venta por dia")
         reports.add("Venta por semana")
         reports.add("Venta por mes")
-        reports.add("Seciones")
+        reports.add("Sesiones")
 
         return  reports
 

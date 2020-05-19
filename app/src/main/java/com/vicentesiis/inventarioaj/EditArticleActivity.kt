@@ -25,6 +25,8 @@ class EditArticleActivity : AppCompatActivity() {
 
     private var realm = Realm.getDefaultInstance()
     private var edit = false
+    private val categories = realm.where<Category>().findAll()
+    private var article: Item? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,11 +39,25 @@ class EditArticleActivity : AppCompatActivity() {
         cost = findViewById(R.id.cost)
         inventory = findViewById(R.id.inventory)
 
-        val categories = realm.where<Category>().findAll()
         val adapter = ArrayAdapter(this,
             R.layout.support_simple_spinner_dropdown_item,
             categories.map { category -> category.name })
         category.adapter = adapter
+
+        val articleID = intent.getStringExtra("articleID")
+
+        if (articleID != null) {
+
+            article = realm.where<Item>().contains("id", articleID).findFirst()
+            buttonSave.text = "Guardar cambios"
+            itemName.setText(article?.name)
+            cost.setText(article?.price.toString())
+            inventory.setText(article?.quantity.toString())
+            val position = categories.indexOf(article?.category)
+            category.setSelection(position)
+            edit = true
+        }
+
     }
 
     fun save(view: View) {
@@ -53,14 +69,27 @@ class EditArticleActivity : AppCompatActivity() {
 
             if (edit) {
 
+                val categorySelected = categories[category.selectedItemPosition]
+
+                realm.executeTransaction {
+                    article?.name = itemName.text.toString()
+                    article?.price = cost.text.toString().toInt()
+                    article?.quantity = inventory.text.toString().toInt()
+                    article?.category = categorySelected
+                    finish()
+                }
+
             } else {
+
+                val categorySelected = categories[category.selectedItemPosition]
 
                 realm.executeTransaction {
                     val article = realm.createObject<Item>()
                     article.name = itemName.text.toString()
                     article.price = cost.text.toString().toInt()
                     article.quantity = inventory.text.toString().toInt()
-
+                    article.category = categorySelected
+                    finish()
                 }
 
             }
@@ -72,6 +101,13 @@ class EditArticleActivity : AppCompatActivity() {
 
     }
 
-    fun delete(view: View) {}
+    fun delete(view: View) {
+        if (edit) {
+            realm.executeTransaction {
+                article?.deleteFromRealm()
+            }
+        }
+        finish()
+    }
 
 }

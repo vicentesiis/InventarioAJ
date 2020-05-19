@@ -18,6 +18,7 @@
             android:title="@string/menu_reports" />
         <item
             android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_close_black_24dp"
             android:title="@string/menu_logout" />
     </group>
 </menu>

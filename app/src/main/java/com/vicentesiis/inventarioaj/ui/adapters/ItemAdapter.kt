@@ -3,16 +3,16 @@ package com.vicentesiis.inventarioaj.ui.adapters
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.vicentesiis.inventarioaj.R
-import com.vicentesiis.inventarioaj.objects.Item
-import kotlin.random.Random
+import com.vicentesiis.inventarioaj.data.Item
 
 class ItemAdapter(): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
@@ -55,10 +55,12 @@ class ItemAdapter(): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
         @SuppressLint("SetTextI18n")
         fun bind(item: Item, context: Context) {
-            category.text = item.category
+            category.text = item.category?.name.toString()
             name.text =  item.name
-            count.text = "Cant: " + item.count.toString()
+            count.text = "Cant: " + item.quantity.toString()
             price.text = "$" + item.price.toString()
+            val color = Color.parseColor("#" + item.category?.color.toString())
+            productImage.setBackgroundColor(color)
 
         }
 

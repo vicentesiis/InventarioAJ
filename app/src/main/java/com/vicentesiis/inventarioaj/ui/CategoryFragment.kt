@@ -36,7 +36,7 @@ class CategoryFragment : Fragment() {
 
         val categories = realm.where<Category>().findAll()
 
-        var adapter = ArrayAdapter(context!!, android.R.layout.simple_list_item_1, categories.map { category -> category.name })
+        val adapter = ArrayAdapter(context!!, android.R.layout.simple_list_item_1, categories.map { category -> category.name })
         list?.adapter = adapter
         list?.onItemClickListener =
             AdapterView.OnItemClickListener { _, _, position, _ ->

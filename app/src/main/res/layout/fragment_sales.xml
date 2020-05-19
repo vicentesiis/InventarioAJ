@@ -3,19 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    android:layout_height="match_parent">
 
-    <TextView
+    <Button
         android:id="@+id/sales"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/sales"
         android:textAlignment="center"
         android:textSize="12pt"
+        android:clickable="false"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginTop="24dp"
+        android:onClick="goToCharge"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
