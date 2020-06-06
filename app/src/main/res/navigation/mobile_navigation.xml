@@ -36,11 +36,11 @@
         android:label="@string/menu_articles"
         tools:layout="@layout/fragment_articles" />
 
-    <fragment
+    <activity
         android:id="@+id/nav_reports"
-        android:name="com.vicentesiis.inventarioaj.ui.ReportsFragment"
+        android:name="com.vicentesiis.inventarioaj.ReportsActivity"
         android:label="@string/menu_reports"
-        tools:layout="@layout/fragment_reports" />
+        tools:layout="@layout/activity_reports" />
 
     <activity
         android:id="@+id/nav_logout"

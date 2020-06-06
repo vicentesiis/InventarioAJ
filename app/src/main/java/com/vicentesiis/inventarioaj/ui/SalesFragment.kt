@@ -73,7 +73,6 @@ class SalesFragment : Fragment() {
                     Toast.makeText(activity, "Ups!, no hay mas en el inventario", Toast.LENGTH_SHORT).show()
                 }
 
-
             }
 
         }

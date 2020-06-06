@@ -76,6 +76,7 @@ class EditArticleActivity : AppCompatActivity() {
                     article?.price = cost.text.toString().toInt()
                     article?.quantity = inventory.text.toString().toInt()
                     article?.category = categorySelected
+                    categorySelected?.items?.add(article)
                     finish()
                 }
 
@@ -89,6 +90,7 @@ class EditArticleActivity : AppCompatActivity() {
                     article.price = cost.text.toString().toInt()
                     article.quantity = inventory.text.toString().toInt()
                     article.category = categorySelected
+                    categorySelected?.items?.add(article)
                     finish()
                 }
 
